@@ -1,0 +1,29 @@
+{
+  "name": "koa-dome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "server": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.20.4",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.6",
+    "next": "^9.1.6",
+    "nodemon": "^2.0.2",
+    "pg": "^7.15.0",
+    "qiniu": "^7.2.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
