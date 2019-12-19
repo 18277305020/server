@@ -1,4 +1,4 @@
-const psql = require('knex')({
+const knex = require('knex')({
     client: 'postgresql',
     connection: {
         host: 'localhost',
@@ -9,4 +9,4 @@ const psql = require('knex')({
 
 });
 
-module.exports = {psql}
+module.exports = {knex}
