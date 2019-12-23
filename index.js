@@ -12,6 +12,6 @@ app.use(cors());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(3001, () => {
-    console.log('[demo] server is starting at port 3001');
+app.listen(3000, () => {
+    console.log('[demo] server is starting at port 3000');
 })

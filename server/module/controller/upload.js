@@ -2,7 +2,7 @@ const {setUrl, getUrl} = require('../db/utils/upload')
 const qiniu = require('qiniu')
 
 const uploadMedia = (ctx, next) => {
-    ctx.body = '123'
+    ctx.body = 'test'
 }
 
 const recordUrl = async (ctx, next) => {
