@@ -10,6 +10,8 @@ export const login = (params) => post('/member/login', params)  //登陆
 
 export const memberList = (params) => post('/member/list', params)
 
+export const memberDel = (params) => post('/member/del', params)
+
 //----------------基础请求--------------------------
 
 

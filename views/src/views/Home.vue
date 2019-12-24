@@ -3,22 +3,17 @@
         <Layout :style="{minHeight: '100vh'}">
             <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
                 <Menu active-name="1-2" theme="dark" width="auto" :class="menuitemClasses">
-                    <MenuItem name="1-1">
+                    <MenuItem name="1-1" to="/">
                         <Icon type="ios-navigate"></Icon>
-                        <span>Option 1</span>
-                    </MenuItem>
-                    <MenuItem name="1-2">
-                        <Icon type="search"></Icon>
-                        <span>Option 2</span>
-                    </MenuItem>
-                    <MenuItem name="1-3">
-                        <Icon type="settings"></Icon>
-                        <span>Option 3</span>
+                        <span>用户管理</span>
                     </MenuItem>
                 </Menu>
             </Sider>
             <Layout>
-                <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"></Header>
+                <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"
+                        style="text-align: right">
+                    <Button @click="isShow = true" icon="md-power" type="primary" shape="circle"></Button>
+                </Header>
                 <Content :style="{padding: '0 16px 16px'}">
                     <Breadcrumb :style="{margin: '16px 0'}">
                         <BreadcrumbItem>Home</BreadcrumbItem>
@@ -31,13 +26,28 @@
                 </Content>
             </Layout>
         </Layout>
+
+
+        <Modal v-model="isShow" width="360">
+            <p slot="header" style="color:#f60;text-align:center">
+                <Icon type="ios-information-circle"></Icon>
+                <span>是否退出管理台</span>
+            </p>
+            <div style="text-align:center">
+                <p>如果退出管理台，需要重新登录才可进来，并且不会保留任何操作信息。</p>
+            </div>
+            <div slot="footer">
+                <Button type="error" size="large" long @click="onSingOut">退 出</Button>
+            </div>
+        </Modal>
     </div>
 </template>
 <script>
     export default {
         data() {
             return {
-                isCollapsed: false
+                isCollapsed: true,
+                isShow: false,
             };
         },
         computed: {
@@ -46,6 +56,13 @@
                     'menu-item',
                     this.isCollapsed ? 'collapsed-menu' : ''
                 ]
+            }
+        },
+        methods: {
+            onSingOut() {
+                sessionStorage.clear()
+                this.$router.replace('/login')
+                this.$Message.success('退出成功');
             }
         }
     }

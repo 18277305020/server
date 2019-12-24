@@ -17,9 +17,14 @@ const createMember = params => {
     return knex(table).insert(params).returning("*")
 }
 
+const removeById = params => {
+    return knex(table).where(params).del()
+}
+
 module.exports = {
     findList,
     findRepeat,
     createMember,
-    getCount
+    getCount,
+    removeById,
 };

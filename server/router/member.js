@@ -1,12 +1,12 @@
 const router = new require('koa-router')()
-const {list, repeat, create, login} = require('../module/controller/member')
+const {list, repeat, create, login, removeId} = require('../module/controller/member')
 const {decoded, checkToken} = require('../lib/jwt')
 
 //查询所有列表
 router.post('/list', checkToken, list)
 
 //新增
-router.post('/create', checkToken, repeat, create)
+router.post('/create', repeat, create)
 
 //登录
 router.post('/login', login)
@@ -23,5 +23,8 @@ router.get('/userInfo', async (ctx, next) => {
         }
     }
 })
+
+//删除用户
+router.post('/del', checkToken, removeId)
 
 module.exports = router.routes()
